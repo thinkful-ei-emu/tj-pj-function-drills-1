@@ -22,4 +22,3 @@ catch(error){
     console.log(error);
 }
 console.log(greeting1);
-
