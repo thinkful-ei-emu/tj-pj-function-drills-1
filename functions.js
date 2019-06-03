@@ -8,20 +8,25 @@ function getYearOfBirth(age) {
 
 function createGreeting(name, age){
   if (age < 0) {
-  throw new Error("Age cannot be negative.");
-  } 
+    throw new Error("Age cannot be negative.");
+  }
+
+  if (!(exists(name) && exists(age))){
+    throw new Error('Arguments not valid');
+  }
+
+  if ((typeof name !== "string") || (typeof age !== "number")){
+    throw new TypeError();
+  }
+
   const yob = getYearOfBirth(age);
   return `Hi, my name is ${name} and I am ${age} years old. I was born in ${yob}.`;
 }
-    if (!(exists(name) && exists(age))){
-        throw new Error('Arguments not valid');
-    }
 
 try {
-    const greeting1 = createGreeting("Tommy", 13);
+  const greeting1 = createGreeting("Tommy", 13);
 }
 
-catch(error){
-    console.log(error);
+catch(e) {
+  console.log(e);
 }
-console.log(greeting1);
