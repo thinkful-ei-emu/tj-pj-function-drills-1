@@ -7,10 +7,19 @@ function getYearOfBirth(age) {
 
 
 function createGreeting(name, age){
+  if (age < 0) {
+      throw new Error("Age cannot be negative.");
+  }
   const yob = getYearOfBirth(age);
   return `Hi, my name is ${name} and I am ${age} years old. I was born in ${yob}.`;
 }
 
-const greeting1 = createGreeting();
+try {
+    const greeting1 = createGreeting("Tommy", 13);
+}
+
+catch(error){
+    console.log(error);
+}
 console.log(greeting1);
 
